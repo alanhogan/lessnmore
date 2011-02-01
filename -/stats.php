@@ -20,3 +20,26 @@ function stats_top_referers($db, $count=10) {
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	return $rows;
 }
+
+function stats_todays_stats($db, $count=false, $floor=0) {
+	$limit = ($count) ? " LIMIT {$count} " : '';
+	$query = 'SELECT url_id, urls.url, urls.custom_url, COUNT(url_id) as hits FROM '. DB_PREFIX . 'url_stats LEFT JOIN '. DB_PREFIX .'urls as urls on ( urls.id = url_id ) WHERE DATE(created_on) = DATE(NOW()) GROUP BY url_id HAVING COUNT(url_id) > '. $floor .' ORDER BY hits DESC' . $limit;
+	$stmt = $db->query($query);
+	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $rows;
+}
+
+function stats_thisweeks_stats($db, $count=false, $floor=0) {
+	$limit = ($count) ? " LIMIT {$count} " : '';
+	$query = 'SELECT url_id, urls.url, urls.custom_url, COUNT(url_id) as hits FROM '. DB_PREFIX . 'url_stats LEFT JOIN '. DB_PREFIX .'urls as urls on ( urls.id = url_id ) WHERE WEEK(created_on) = WEEK(NOW()) GROUP BY url_id HAVING COUNT(url_id) > '. $floor .' ORDER BY hits DESC' . $limit;
+	$stmt = $db->query($query);
+	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $rows;
+}
+
+function stats_total_lessnd($db) {
+	$query = 'SELECT COUNT(id) as num FROM '. DB_PREFIX .'urls ';
+	$stmt = $db->query($query);
+	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return (isset($rows[0]['num'])) ? $rows[0]['num'] : 0;
+}

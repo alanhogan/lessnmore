@@ -24,12 +24,24 @@
 		onclick="alert('Drag this bookmarklet onto your browser bar.');return false;">
 		Tweetn
 		</a> bookmarklet.
+	</p>
+	<p>Or, non-prompted <a 
+		title="Shrink a link"
+		href="javascript:location.href='<?php echo BCURLS_URL; ?>-/?url='+encodeURIComponent(location.href)" 
+		onclick="alert('Drag this bookmarklet onto your browser bar.');return false;">
+		Lessn
+		</a> / <a 
+		title="Shrink and tweet the shortened link"
+		href="javascript:location.href='<?php echo BCURLS_URL; ?>-/?tweet&amp;url='+encodeURIComponent(location.href)"
+		onclick="alert('Drag this bookmarklet onto your browser bar.');return false;">
+		Tweetn
+		</a>.
 		<span>API key: <code><?php echo API_KEY; ?></code></span>
 	</p>
 </form>
 
 <p>
-	<a href="?stats=1">URL Stats</a>
+	<a href="?stats">URL Stats</a>
 </p>
 
 <?php if(isset($bc_log) && strlen($bc_log)) : ?>

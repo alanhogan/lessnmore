@@ -31,6 +31,7 @@ define('BCURLS_VERSION',	'2.0.1');
 
 define('BCURLS_DOMAIN', 	preg_replace('#^www\.#', '', $_SERVER['SERVER_NAME']));
 define('BCURLS_URL', 	str_replace('-/index.php', '', 'http://'.BCURLS_DOMAIN.$_SERVER['PHP_SELF']));
+define('BCURLS_PATH', 	realpath('.') );
 
 //don't reveal db prefix over HTTP. 16 chars is more than enough to avoid collisions
 define('COOKIE_NAME', 	substr(md5(DB_PREFIX.COOKIE_SALT), 4, 16).'auth'); 
@@ -531,7 +532,7 @@ if (isset($_GET['url']) && !empty($_GET['url']))
 	}
 	if (isset($_GET['redirect']))
 	{
-		header('Location:'.str_replace('%l', urlencode($new_url), $_GET['redirect']));
+		header('Location:'.str_replace('%l', urlencode(' '.$new_url), $_GET['redirect']));
 		exit();
 	}
 	if (isset($_GET['api']))
@@ -546,6 +547,9 @@ else if(isset($_GET['stats']))  // Display stats
 {
 	$top_urls = stats_top_urls($db);
 	$top_referers = stats_top_referers($db);
+	$todays_urls = stats_todays_stats($db);
+	$weeks_urls = stats_thisweeks_stats($db);
+	$number_lessnd = stats_total_lessnd($db);
 	include('pages/stats.php');
 }
 elseif(isset($_GET['mark_gone']) && isset($_GET['slug']) && strlen(trim($_GET['slug']))) 

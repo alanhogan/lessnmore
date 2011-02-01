@@ -1,2 +1,3 @@
+</div><!--#wrap-->
 </body> 
 </html>
