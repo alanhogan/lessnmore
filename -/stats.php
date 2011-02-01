@@ -9,7 +9,7 @@ function record_stats($db, $url_id) {
 	$stmt->execute();
 }
 
-function stats_top_urls($db, $count=10) {
+function stats_top_urls($db, $count=25) {
 	$stmt = $db->query('SELECT u.id,u.url,u.custom_url,COUNT(s.url_id) as hits FROM '.DB_PREFIX.'urls u LEFT JOIN '.DB_PREFIX.'url_stats s ON u.id = s.url_id GROUP BY u.id,u.url ORDER BY hits desc LIMIT '.$count);
 	return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
