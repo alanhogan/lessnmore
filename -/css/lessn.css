@@ -81,6 +81,7 @@ tr:nth-child(2n+2) {
 
 tr:hover {
 	background-color:#ccc;
+	color:#000;
 }
 td:last-child {
 	text-align:right;
@@ -88,6 +89,7 @@ td:last-child {
 h2 {
 	font-size:21px;
 	line-height:1;
+	margin-top:2em;
 }
 .clicky h2 {
 	display:inline-block;

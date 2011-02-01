@@ -10,9 +10,9 @@ jQuery(document).ready(function($) {
 		$("h2").each(function(index) {
 			var self = $(this),
 			table = self.next("table"),
-			id = self.text().replace(/\s+/g,'-').replace(/[^\w+-]+/, '').toLowerCase();
+			id = table.attr("id");
 
-			self.data('target', id).click(showTable);;
+			self.attr('data-target', id).click(showTable);;
 			table.attr({id: id}).hide().appendTo(div);
 		});
 
@@ -38,23 +38,39 @@ jQuery(document).ready(function($) {
 				next.click();
 				return false;
 			}
-		
 		});
 		
 		$("body").addClass("clicky");
+		
+		$(window).bind( 'hashchange', goToHash).trigger('hashchange');
 	}
 	if ( $("body").attr("id") === "stats" ) {
 		init();
 	}
 	
-	function showTable() {
-		var self = $(this),
-		table = $("#" + self.data("target") );
+	function goToHash() {
+		var hash = location.hash,
+		table = $(hash),
+		id = hash.replace('#', ''),
+		h2 = $("h2[data-target="+id+"]");
+		
+		// if nothing, default to clicking on first h2
+		if ( ! table.size() ) {
+			$("h2:first").click();
+			return false;
+		}
+		
 		$("#tables table").hide();
 		table.fadeIn(transition);
 		
 		$("h2").removeClass(activeClass);
-		self.addClass(activeClass);
+		h2.addClass(activeClass);
+	}
+	
+	function showTable(event) {
+		var self = $(this),
+		hash = "#" + self.attr("data-target");
+		$.bbq.pushState(hash);
 	}
 	
 	

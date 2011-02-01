@@ -4,7 +4,7 @@
 </p>
 <p id="lessnd"><?php echo APP_NAME ?> has shortened <strong><?php echo $number_lessnd; ?></strong> URLs to date.</p>
 <h2>Today</h2>
-<table cellspacing="0">
+<table cellspacing="0" id="today">
 	<tr>
 		<th class="longurl">URL</th>
 		<th class="shorturl">Lessn'd</th>
@@ -26,7 +26,7 @@
 </table>
 
 <h2>This Week</h2>
-<table cellspacing="0">
+<table cellspacing="0" id="this-week">
 	<tr>
 		<th class="longurl">URL</th>
 		<th class="shorturl">Lessn'd</th>
@@ -48,7 +48,7 @@
 </table>
 
 <h2>All Time</h2>
-<table cellspacing="0">
+<table cellspacing="0" id="all-time">
 	<tr>
 		<th class="longurl">URL</th>
 		<th class="shorturl">Lessn'd</th>
@@ -68,9 +68,9 @@
 </table>
 
 <h2>Referrers</h2>
-<table cellspacing="0">
+<table cellspacing="0" id="referrers">
 	<tr>
-		<th class="referers">Referer</th>
+		<th class="referers">Referrer</th>
 		<th class="hits">Hits</th>
 	</tr>
 	
@@ -85,6 +85,7 @@
 <script>
 <?php
 	include BCURLS_PATH . '/js/jquery-1.5.min.js';
+	include BCURLS_PATH . '/js/jquery-bbq.min.js';
 	include BCURLS_PATH . '/js/lessn.js';
 ?>
 </script>
