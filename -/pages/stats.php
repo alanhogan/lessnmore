@@ -82,10 +82,9 @@
 <?php } ?>
 
 </table>
+<script src="<?php echo BCURLS_URL ?>-/js/loader.php"></script>
 <script>
 <?php
-	include BCURLS_PATH . '/js/jquery-1.5.min.js';
-	include BCURLS_PATH . '/js/jquery-bbq.min.js';
 	include BCURLS_PATH . '/js/lessn.js';
 ?>
 </script>
