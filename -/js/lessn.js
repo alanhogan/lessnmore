@@ -19,7 +19,7 @@ jQuery(document).ready(function($) {
 		$("h2:first").click();
 		
 		$(document).keydown(function(e){
-			if (e.keyCode == 37 || e.keyCode == 38) { 
+			if (e.keyCode == 37) { 
 				var active = $("h2."+activeClass),
 				prev = active.prev("h2");
 				console.log(prev.size());
@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
 				prev.click();
 				return false;
 			}
-			else if ( e.keyCode == 39 || e.keyCode == 39 ) {
+			else if ( e.keyCode == 39 ) {
 				var active = $("h2."+activeClass),
 				next = active.next("h2");
 				if ( ! next.size() ) {
