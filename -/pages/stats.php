@@ -1,8 +1,8 @@
 <?php include('stubs/header.php'); ?>
 <p>
-	<a href="<?php echo BCURLS_URL ?>-/">Back</a>
+	<a href="<?php echo BCURLS_URL ?>-/">&larr; Back</a>
+	<?php echo APP_NAME ?> has shortened <strong><?php echo $number_lessnd; ?></strong> URLs for <strong><?php echo $number_redirected ?></strong> redirects to date.
 </p>
-<p id="lessnd"><?php echo APP_NAME ?> has shortened <strong><?php echo $number_lessnd; ?></strong> URLs to date.</p>
 <h2>Today</h2>
 <table cellspacing="0" id="today">
 	<tr>
@@ -10,12 +10,10 @@
 		<th class="shorturl">Lessn'd</th>
 		<th class="hits">Hits</th>
 	</tr>
-<?php foreach($todays_urls as $url) { 
-	$short = htmlspecialchars(BCURLS_URL.$url['custom_url'], ENT_QUOTES, 'UTF-8');
-	?>
+<?php foreach($todays_urls as $url) { ?>
 	<tr>
-		<td><?php echo htmlspecialchars($url['url'], ENT_QUOTES, 'UTF-8')?></td>
-		<td><!-- <a href="<?php /*=$short*/ ?>"> --><?php echo $short?><!-- </a> --></td>
+		<td><?php stats_display_url( $url['url'] ); ?></td>
+		<td><!-- <a href="<?php /*=$short*/ ?>"> --><?php stats_display_url( BCURLS_URL . $url['custom_url'] ); ?><!-- </a> --></td>
 		<td><?php echo $url['hits']?></td>
 	</tr>
 <?php }
@@ -32,12 +30,10 @@
 		<th class="shorturl">Lessn'd</th>
 		<th class="hits">Hits</th>
 	</tr>
-<?php foreach($weeks_urls as $url) { 
-	$short = htmlspecialchars(BCURLS_URL.$url['custom_url'], ENT_QUOTES, 'UTF-8');
-	?>
+<?php foreach($weeks_urls as $url) { ?>
 	<tr>
-		<td><?php echo htmlspecialchars($url['url'], ENT_QUOTES, 'UTF-8')?></td>
-		<td><!-- <a href="<?php /*=$short*/ ?>"> --><?php echo $short?><!-- </a> --></td>
+		<td><?php stats_display_url( $url['url'] ); ?></td>
+		<td><!-- <a href="<?php /*=$short*/ ?>"> --><?php stats_display_url( BCURLS_URL . $url['custom_url'] ); ?><!-- </a> --></td>
 		<td><?php echo $url['hits']?></td>
 	</tr>
 <?php }
@@ -55,12 +51,10 @@
 		<th class="hits">Hits</th>
 	</tr>
 	
-<?php foreach($top_urls as $url) { 
-	$short = htmlspecialchars(BCURLS_URL.$url['custom_url'], ENT_QUOTES, 'UTF-8');
-	?>
+<?php foreach($top_urls as $url) { ?>
 	<tr>
-		<td><?php echo htmlspecialchars($url['url'], ENT_QUOTES, 'UTF-8')?></td>
-		<td><!-- <a href="<?php /*=$short*/ ?>"> --><?php echo $short?><!-- </a> --></td>
+		<td><?php stats_display_url( $url['url'] ); ?></td>
+		<td><!-- <a href="<?php /*=$short*/ ?>"> --><?php stats_display_url( BCURLS_URL . $url['custom_url'] ); ?><!-- </a> --></td>
 		<td><?php echo $url['hits']?></td>
 	</tr>
 <?php } ?>
@@ -76,7 +70,7 @@
 	
 <?php foreach($top_referers as $url) { ?>
 <tr>
-	<td><?php echo htmlspecialchars($url['referer'], ENT_QUOTES, 'UTF-8')?></td>
+	<td><?php stats_display_url( htmlspecialchars($url['referer'], ENT_QUOTES, 'UTF-8') ); ?></td>
 	<td><?php echo $url['hits']?></td>
 </tr>
 <?php } ?>

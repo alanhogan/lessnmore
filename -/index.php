@@ -550,6 +550,7 @@ else if(isset($_GET['stats']))  // Display stats
 	$todays_urls = stats_todays_stats($db);
 	$weeks_urls = stats_thisweeks_stats($db);
 	$number_lessnd = stats_total_lessnd($db);
+	$number_redirected = stats_total_redirects($db);
 	include('pages/stats.php');
 }
 elseif(isset($_GET['mark_gone']) && isset($_GET['slug']) && strlen(trim($_GET['slug']))) 

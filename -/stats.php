@@ -41,5 +41,18 @@ function stats_total_lessnd($db) {
 	$query = 'SELECT COUNT(id) as num FROM '. DB_PREFIX .'urls ';
 	$stmt = $db->query($query);
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	return (isset($rows[0]['num'])) ? $rows[0]['num'] : 0;
+	return ( isset($rows[0]['num']) ) ? $rows[0]['num'] : 0;
+}
+
+function stats_total_redirects($db) {
+	$query = 'SELECT COUNT(*) as hits from '. DB_PREFIX .'url_stats';
+	$stmt = $db->query($query);
+	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return ( isset($rows[0]['hits']) ) ? $rows[0]['hits'] : 0;
+}
+
+/* put a span around the protocol */
+function stats_display_url($url) {
+	$url = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
+	echo preg_replace( '/^https?:\/\//', '<span>$0</span>', $url );
 }
