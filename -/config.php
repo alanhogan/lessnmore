@@ -18,6 +18,8 @@ define('RECORD_URL_STATS', true);
 define('COOKIE_SALT', 	'1a5al-sSXqO[]P83Rfoo');
 define('API_SALT',		'XqO)-O4K2595JMEOQ');
 
+// Your timezone. Because your server isn't necessarily on your time
+define('TIMEZONE', 'America/Winnipeg');
 
 // How should short URL slugs be generated? 
 // 'base36'       - Used by the original Lessn. [0-9a-z]

@@ -22,6 +22,9 @@ function stats_top_referers($db, $count=10) {
 }
 
 function stats_todays_stats($db, $count=false, $floor=0) {
+	if ( $offset = stats_get_UTC_offset() ) {
+		$db->exec('SET time_zone = "'. $offset .'";');
+	}
 	$limit = ($count) ? " LIMIT {$count} " : '';
 	$query = 'SELECT url_id, urls.url, urls.custom_url, COUNT(url_id) as hits FROM '. DB_PREFIX . 'url_stats LEFT JOIN '. DB_PREFIX .'urls as urls on ( urls.id = url_id ) WHERE DATE(created_on) = DATE(NOW()) GROUP BY url_id HAVING COUNT(url_id) > '. $floor .' ORDER BY hits DESC' . $limit;
 	$stmt = $db->query($query);
@@ -30,8 +33,12 @@ function stats_todays_stats($db, $count=false, $floor=0) {
 }
 
 function stats_thisweeks_stats($db, $count=false, $floor=0) {
+	if ( $offset = stats_get_UTC_offset() ) {
+		$db->exec('SET time_zone = "'. $offset .'";');
+	}
 	$limit = ($count) ? " LIMIT {$count} " : '';
 	$query = 'SELECT url_id, urls.url, urls.custom_url, COUNT(url_id) as hits FROM '. DB_PREFIX . 'url_stats LEFT JOIN '. DB_PREFIX .'urls as urls on ( urls.id = url_id ) WHERE WEEK(created_on) = WEEK(NOW()) GROUP BY url_id HAVING COUNT(url_id) > '. $floor .' ORDER BY hits DESC' . $limit;
+	
 	$stmt = $db->query($query);
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	return $rows;
@@ -49,6 +56,14 @@ function stats_total_redirects($db) {
 	$stmt = $db->query($query);
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	return ( isset($rows[0]['hits']) ) ? $rows[0]['hits'] : 0;
+}
+
+function stats_get_UTC_offset() {
+	if ( ! defined('TIMEZONE') || TIMEZONE === "" ) {
+		return false;
+	}
+	date_default_timezone_set(TIMEZONE);
+	return date('P');
 }
 
 /* put a span around the protocol */

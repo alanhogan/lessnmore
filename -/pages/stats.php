@@ -37,7 +37,7 @@
 		<td><?php echo $url['hits']?></td>
 	</tr>
 <?php }
-	if ( empty($todays_urls) ) {
+	if ( empty($weeks_urls) ) {
 		echo '<td>Nothing</td><td>to</td><td>report</td>';
 	}
 ?>
