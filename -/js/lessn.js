@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
 	
 	var activeClass = "active",
-	transition = 0;
+	transition = 00;
 	
 	function init() {
 		var div = $("<div id='tables'></div>");
@@ -16,26 +16,17 @@ jQuery(document).ready(function($) {
 			table.attr({id: id}).hide().appendTo(div);
 		});
 
-		$("h2:first").click();
-		
 		$(document).keydown(function(e){
-			if (e.keyCode == 37) { 
-				var active = $("h2."+activeClass),
-				prev = active.prev("h2");
-				console.log(prev.size());
-				if ( ! prev.size() ) {
-					prev = $("h2:last");
+			if ( e.keyCode == 37 || e.keyCode == 39) {
+				var active = $("h2." + activeClass),
+				left = (e.keyCode == 37),
+				dir = ( left ) ? 'prev' : 'next',
+				end = ( left ) ? 'last' : 'first',
+				target = active[dir]("h2");
+				if ( ! target.size() ) {
+					target = $("h2:" + end);
 				}
-				prev.click();
-				return false;
-			}
-			else if ( e.keyCode == 39 ) {
-				var active = $("h2."+activeClass),
-				next = active.next("h2");
-				if ( ! next.size() ) {
-					next = $("h2:first");
-				}
-				next.click();
+				target.click();
 				return false;
 			}
 		});
