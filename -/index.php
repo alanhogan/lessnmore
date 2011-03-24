@@ -528,7 +528,7 @@ if (isset($_GET['url']) && !empty($_GET['url']))
 	
 	if (isset($_GET['tweet']))
 	{
-		$_GET['redirect'] = 'http://twitter.com/?status=%l';
+		$_GET['redirect'] = 'https://twitter.com/?status=%l';
 	}
 	if (isset($_GET['redirect']))
 	{

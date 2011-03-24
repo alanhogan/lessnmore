@@ -10,7 +10,7 @@
 	→ <strong><?php echo htmlspecialchars($url, ENT_QUOTES, 'UTF-8'); ?></strong>
 </p>
 <p>
-	<a href="http://twitter.com/?status=<?php echo urlencode(' '.$new_url); ?>">Tweet</a>
+	<a href="https://twitter.com/?status=<?php echo urlencode(' '.$new_url); ?>">Tweet</a>
 </p>
 
 <?php if(isset($bc_log) && strlen($bc_log)) : ?>
