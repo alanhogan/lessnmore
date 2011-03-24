@@ -1,0 +1,64 @@
+[01-Feb-2011 01:00:49] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'hits' in 'where clause'' in /webdev/testing/lessn/-/stats.php:27
+Stack trace:
+#0 /webdev/testing/lessn/-/stats.php(27): PDO->query('SELECT url_id, ...')
+#1 /webdev/testing/lessn/-/index.php(550): stats_todays_stats(Object(PDO))
+#2 {main}
+  thrown in /webdev/testing/lessn/-/stats.php on line 27
+[01-Feb-2011 01:01:13] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1111 Invalid use of group function' in /webdev/testing/lessn/-/stats.php:27
+Stack trace:
+#0 /webdev/testing/lessn/-/stats.php(27): PDO->query('SELECT url_id, ...')
+#1 /webdev/testing/lessn/-/index.php(550): stats_todays_stats(Object(PDO))
+#2 {main}
+  thrown in /webdev/testing/lessn/-/stats.php on line 27
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[01-Feb-2011 16:55:35] PHP Warning:  preg_replace() expects at least 3 parameters, 2 given in /webdev/testing/lessn/-/stats.php on line 50
+[02-Feb-2011 00:12:05] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT url_id, urls.url, urls.custom_url, COUNT(url_id) as hits FROM lessn_url_s' at line 1' in /webdev/testing/lessn/-/stats.php:27
+Stack trace:
+#0 /webdev/testing/lessn/-/stats.php(27): PDO->query('SET time_zone =...')
+#1 /webdev/testing/lessn/-/index.php(550): stats_todays_stats(Object(PDO))
+#2 {main}
+  thrown in /webdev/testing/lessn/-/stats.php on line 27
+[02-Feb-2011 00:12:17] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error' in /webdev/testing/lessn/-/stats.php:28
+Stack trace:
+#0 /webdev/testing/lessn/-/stats.php(28): PDOStatement->fetchAll(2)
+#1 /webdev/testing/lessn/-/index.php(550): stats_todays_stats(Object(PDO))
+#2 {main}
+  thrown in /webdev/testing/lessn/-/stats.php on line 28
+[02-Feb-2011 00:19:16] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error' in /webdev/testing/lessn/-/stats.php:29
+Stack trace:
+#0 /webdev/testing/lessn/-/stats.php(29): PDOStatement->fetchAll(2)
+#1 /webdev/testing/lessn/-/index.php(550): stats_todays_stats(Object(PDO))
+#2 {main}
+  thrown in /webdev/testing/lessn/-/stats.php on line 29
+[02-Feb-2011 00:19:20] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error' in /webdev/testing/lessn/-/stats.php:29
+Stack trace:
+#0 /webdev/testing/lessn/-/stats.php(29): PDOStatement->fetchAll(2)
+#1 /webdev/testing/lessn/-/index.php(550): stats_todays_stats(Object(PDO))
+#2 {main}
+  thrown in /webdev/testing/lessn/-/stats.php on line 29
+[02-Feb-2011 00:39:59] PHP Parse error:  syntax error, unexpected ')', expecting T_PAAMAYIM_NEKUDOTAYIM in /webdev/testing/lessn/-/stats.php on line 62
+[02-Feb-2011 00:40:54] PHP Notice:  date_default_timezone_set() [<a href='function.date-default-timezone-set'>function.date-default-timezone-set</a>]: Timezone ID 'America/Calgary' is invalid in /webdev/testing/lessn/-/stats.php on line 65
+[02-Feb-2011 00:40:54] PHP Notice:  date_default_timezone_set() [<a href='function.date-default-timezone-set'>function.date-default-timezone-set</a>]: Timezone ID 'America/Calgary' is invalid in /webdev/testing/lessn/-/stats.php on line 65
+[09-Feb-2011 02:24:37] PHP Parse error:  syntax error, unexpected ',' in /webdev/testing/lessn/-/db.php on line 7
+[09-Feb-2011 02:26:20] PHP Notice:  Undefined variable: db in /webdev/testing/lessn/-/db.php on line 12
+[09-Feb-2011 02:26:20] PHP Notice:  Object of class PDO could not be converted to int in /webdev/testing/lessn/-/db.php on line 12
+[09-Feb-2011 02:26:20] PHP Notice:  Undefined variable: db in /webdev/testing/lessn/-/db.php on line 15
+[09-Feb-2011 02:26:20] PHP Fatal error:  Call to a member function setAttribute() on a non-object in /webdev/testing/lessn/-/db.php on line 15
