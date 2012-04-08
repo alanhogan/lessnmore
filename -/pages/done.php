@@ -6,7 +6,7 @@
 
 <p>
 	<!-- Using shortlink class. See http://ajh.us/k -->
-	<input type="text" id="url" class="shortlink" value="<?php echo htmlspecialchars($new_url); ?>" onclick="this.focus();this.select();" readonly="readonly" />
+	<input type="text" id="url" class="shortlink" value="<?php echo htmlspecialchars($new_url); ?>" onclick="this.focus();this.select();" />
 	→ <strong><?php echo htmlspecialchars($url, ENT_QUOTES, 'UTF-8'); ?></strong>
 </p>
 <p>
