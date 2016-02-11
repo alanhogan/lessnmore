@@ -26,7 +26,8 @@ function stats_todays_stats($db, $count=false, $floor=0) {
 		$db->exec('SET time_zone = "'. $offset .'";');
 	}
 	$limit = ($count) ? " LIMIT {$count} " : '';
-	$query = 'SELECT url_id, urls.url, urls.custom_url, COUNT(url_id) as hits FROM '. DB_PREFIX . 'url_stats LEFT JOIN '. DB_PREFIX .'urls as urls on ( urls.id = url_id ) WHERE DATE(created_on) = DATE(NOW()) GROUP BY url_id HAVING COUNT(url_id) > '. $floor .' ORDER BY hits DESC' . $limit;
+	$dateNow = (DB_DRIVER === 'sqlite' ? 'DATE(\'now\')' : 'DATE(NOW())');
+	$query = 'SELECT url_id, urls.url, urls.custom_url, COUNT(url_id) as hits FROM '. DB_PREFIX . 'url_stats LEFT JOIN '. DB_PREFIX .'urls as urls on ( urls.id = url_id ) WHERE DATE(created_on) = '.$dateNow.' GROUP BY url_id HAVING COUNT(url_id) > '. $floor .' ORDER BY hits DESC' . $limit;
 	$stmt = $db->query($query);
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	return $rows;
@@ -37,8 +38,11 @@ function stats_thisweeks_stats($db, $count=false, $floor=0) {
 		$db->exec('SET time_zone = "'. $offset .'";');
 	}
 	$limit = ($count) ? " LIMIT {$count} " : '';
-	$query = 'SELECT url_id, urls.url, urls.custom_url, COUNT(url_id) as hits FROM '. DB_PREFIX . 'url_stats LEFT JOIN '. DB_PREFIX .'urls as urls on ( urls.id = url_id ) WHERE WEEK(created_on) = WEEK(NOW()) GROUP BY url_id HAVING COUNT(url_id) > '. $floor .' ORDER BY hits DESC' . $limit;
-	
+
+	$weekCreatedOn = (DB_DRIVER === 'sqlite' ? 'strftime(\'%W\', created_on)' : 'WEEK(created_on)');
+	$weekNow = (DB_DRIVER === 'sqlite' ? 'strftime(\'%W\', \'now\')' : 'WEEK(NOW())');
+	$query = 'SELECT url_id, urls.url, urls.custom_url, COUNT(url_id) as hits FROM '. DB_PREFIX . 'url_stats LEFT JOIN '. DB_PREFIX .'urls as urls on ( urls.id = url_id ) WHERE '.$weekCreatedOn.' = '.$weekNow.' GROUP BY url_id HAVING COUNT(url_id) > '. $floor .' ORDER BY hits DESC' . $limit;
+
 	$stmt = $db->query($query);
 	$rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	return $rows;
