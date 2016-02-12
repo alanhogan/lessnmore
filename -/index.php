@@ -524,7 +524,12 @@ if (isset($_GET['url']) && !empty($_GET['url']))
 				// This would deal with simultaneous inserts.
 				$counter_update_sql = "UPDATE {$prefix}autoslug 
 					SET base10 = :base10
-					WHERE method = :method LIMIT 1";
+					WHERE method = :method";
+
+				if (DB_DRIVER !== 'sqlite') {
+					$counter_update_sql .= " LIMIT 1";
+				}
+
 				$ctr_up = $db->prepare($counter_update_sql);
 				$ctr_up_res = $ctr_up->execute(array(
 					'method' => AUTO_SLUG_METHOD, 
@@ -540,7 +545,7 @@ if (isset($_GET['url']) && !empty($_GET['url']))
 				$error = (string) $e2;
 				bc_log('Could not update counter. '.$e2);
 			}
-			
+
 			break;
 		}
 		
