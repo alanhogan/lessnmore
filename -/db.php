@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 // connect
 try {
 	if ( DB_DRIVER == 'sqlite' ) {
-		$db = new PDO( DB_DRIVER.':'.DB_NAME );
+		$db = new PDO( DB_DRIVER.':'.dirname(__FILE__).DIRECTORY_SEPARATOR.DB_NAME );
 	}
 	else {
 		$db = new PDO ( DB_DRIVER.':host='.DB_SERVER.';dbname='.DB_NAME, DB_USERNAME, DB_PASSWORD );
