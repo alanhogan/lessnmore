@@ -11,6 +11,7 @@ $id = basename($backtrace[0]['file'], '.php');
 <style>
 <?php include BCURLS_PATH . '/css/lessn.css'; ?>
 </style>
+<script defer src="//use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
 </head>
 <body id="<?php echo $id; ?>">
 <div id="top-bar">
