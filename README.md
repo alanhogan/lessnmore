@@ -64,7 +64,7 @@ Requirements
 
 * PHP 5.6 or newer
 * PHP's PDO (usually included in PHP builds)
-* Database: MySQL (most solidly supported), PostgreSQL, or SQLite <small>(though [see this](https://github.com/alanhogan/lessnmore/issues/#issue/7) for SQLite support)</small>
+* Database: MySQL (most solidly supported), PostgreSQL, or SQLite <small>(though [see this](https://github.com/alanhogan/lessnmore/issues/7) for SQLite support)</small>
 * While your server doesn’t need to be Apache, the project ships with an Apache `.htaccess` file to handle redirecting requests to the Lessn More redirection engine, for your convenience. Michael McKelvaney has written about [using Nginx instead][with-nginx]. For IIS, [bigworm reports success with this](https://github.com/alanhogan/lessnmore/issues/24).
 
 [with-nginx]: http://mckelvaney.co.uk/blog/2013/04/30/deploying-lessn-more-with-nginx-and-try-files/
