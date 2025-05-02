@@ -66,8 +66,9 @@ function stats_get_UTC_offset() {
 	return date('P');
 }
 
-/* put a span around the protocol */
+/* put a span around the protocol & adds a link after the URL */
 function stats_display_url($url) {
 	$url = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
 	echo preg_replace( '/^https?:\/\//', '<span>$0</span>', $url );
+	echo ' <a href="'.$url.'" target="_blank" title="Open URL"><i class="fas fa-external-link-alt"></i></a>';
 }
